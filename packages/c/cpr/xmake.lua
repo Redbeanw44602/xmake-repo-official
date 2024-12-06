@@ -6,6 +6,7 @@ package("cpr")
 
     set_urls("https://github.com/libcpr/cpr/archive/refs/tags/$(version).tar.gz",
              "https://github.com/libcpr/cpr.git")
+
     add_versions("1.11.1", "e84b8ef348f41072609f53aab05bdaab24bf5916c62d99651dfbeaf282a8e0a2")
     add_versions("1.6.2", "c45f9c55797380c6ba44060f0c73713fbd7989eeb1147aedb8723aa14f3afaa3")
     add_versions("1.7.2", "aa38a414fe2ffc49af13a08b6ab34df825fdd2e7a1213d032d835a779e14176f")
@@ -26,7 +27,6 @@ package("cpr")
     on_load(function (package)
         if package:config("ssl") then
             package:add("deps", "libcurl", {configs = {libssh2 = true, zlib = true}})
-            package:add("deps", "libssh2")
         else
             package:add("deps", "libcurl")
         end
